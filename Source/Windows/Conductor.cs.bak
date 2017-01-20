@@ -39,22 +39,7 @@ namespace SQLiteLogViewer
                 var mainViewModel = Application.Current.MainWindow.DataContext as MainViewModel;
                 this.filterWindow = new FilterWindow { DataContext = mainViewModel.LogViewModel };
 
-                this.filterWindow.Closed += (sender, e) =>
-                {
-                    LogViewModel logViewModel = (LogViewModel)this.filterWindow.DataContext;
-
-                    if (logViewModel != null)
-                    {
-                        FilterViewModel filter = new FilterViewModel();
-
-                        int lastFilterIndex = logViewModel.Filters.Count - 1;
-                        if (logViewModel.Filters[lastFilterIndex].Equals(filter))
-                        {
-                            logViewModel.Filters.RemoveAt(lastFilterIndex);
-                        }
-                    }
-                    this.filterWindow = null;
-                };
+                this.filterWindow.Closed += (sender, e) => this.filterWindow = null;
                 this.filterWindow.Show();
             }
             else

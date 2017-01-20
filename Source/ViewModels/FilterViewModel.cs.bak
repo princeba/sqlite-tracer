@@ -227,10 +227,5 @@
             this.NotifyPropertyChanged(propertyName);
             this.NotifyPropertyChanged("Description");
         }
-
-        public bool Equals(FilterViewModel filterVM)
-        {
-            return this.Filter == filterVM.Filter;
-        }
     }
 }

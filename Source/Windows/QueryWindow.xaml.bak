@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SQLiteLogViewer"
         mc:Ignorable="d"
-        Title="QueryWindow" Height="300" Width="640" Icon="Profiler1.ico">
+        Title="QueryWindow" Height="300" Width="640">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -16,11 +16,10 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Column="0" Margin="3">Connection:</Label>
+        <Label Grid.Column="0" Margin="3">Connection: </Label>
         <ComboBox ItemsSource="{Binding Connections, Mode=OneWay}"
                   SelectedItem="{Binding SelectedConnection}"
                   DisplayMemberPath="Filename"
@@ -28,16 +27,16 @@
                   IsTextSearchEnabled="True"
                   IsTextSearchCaseSensitive="False"
                   StaysOpenOnEdit="True"
-                  Grid.Column="1" Grid.ColumnSpan="3" Margin="3"/>
+                  Grid.Column="1" Grid.ColumnSpan="2" Margin="3"/>
 
         <TextBox Name="Query"
                  Text="{Binding QueryText}"
                  TextWrapping="Wrap"
                  AcceptsReturn="True"
                  AcceptsTab="True"
-                 Grid.Row="1" Grid.ColumnSpan="4" Margin="3,0,3,3"/>
+                 Grid.Row="1" Grid.ColumnSpan="3" Margin="3,0,3,3"/>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2" Margin="3,0,3,3" Grid.ColumnSpan="2">
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2" Margin="3,0,3,3">
             <Button Command="{Binding Exec}" Padding="5,2">Query</Button>
         </StackPanel>
     </Grid>
